@@ -7,6 +7,7 @@ if [ -d $_ROOT ]; then
   cd $_ROOT
   flutter clean
   echo -n "Cleaning other auto-gen files under android/ and ios/..."
+  rm -rf $_ROOT/.idea/
   rm -rf $_ROOT/android/.gradle/
   rm -rf $_ROOT/android/app/bin
   rm -f $_ROOT/android/local.properties
