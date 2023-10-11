@@ -31,7 +31,7 @@ To change the names, the following files must be changed with your preferred nam
 - pubspec.yaml
 - android/app/build.grade
 - android/app/src/main/AndroidManifest.xml
-- android/app/src/main/kotlin/com/example/MainActivity.kt
+- android/app/src/main/kotlin/com/example/app_template/MainActivity.kt
 - ios/Runner/Info.plist
 - ios/Runner.xcodeproj/project.pbxproj
 - web/index.html
