@@ -10,6 +10,8 @@ if [ -d $_ROOT ]; then
   rm -rf $_ROOT/.idea/
   rm -rf $_ROOT/android/.gradle/
   rm -rf $_ROOT/android/app/bin
+  rm -f $_ROOT/android/gradlew*
+  rm -f $_ROOT/android/gradle/wrapper/gradle-wrapper.jar
   rm -f $_ROOT/android/local.properties
   rm -f $_ROOT/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
   rm -f $_ROOT/ios/Runner/GeneratedPluginRegistrant.*
