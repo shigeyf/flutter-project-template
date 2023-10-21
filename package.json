@@ -15,7 +15,7 @@
     "format:fix": "prettier --write .",
     "format:lint-staged": "prettier --write",
     "format:dart:lint-staged": "dart format --fix",
-    "dartlint::lint-staged": "dart fix --apply"
+    "dartlint:lint-staged": "dart fix --apply"
   },
   "config": {
     "commitizen": {
