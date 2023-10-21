@@ -13,6 +13,7 @@ class HomePageController {
   final ProviderRef ref;
   final EntryRepository entryRepository;
 
+  /// Provides a constructor for [HomePageController].
   HomePageController({required this.ref, required this.entryRepository});
 
   // The ProviderRef gives us access to functions involving the state of our app.
