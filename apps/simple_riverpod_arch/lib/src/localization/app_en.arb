@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter Riverpod sample app1 (memory-based storage)",
+  "@appTitle": {
+    "description": "The title of the application."
+  },
+  "appBarTitle": "Entries Management",
+  "dateFormat": "yyyy-MM-dd HH:mm:ss.S"
+}

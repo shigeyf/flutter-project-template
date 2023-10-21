@@ -1,0 +1,6 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Flutter Riverpod サンプルアプリ1 (メモリベース ストレージ)",
+  "appBarTitle": "エントリ管理",
+  "dateFormat": "yyyy年MM月dd日 HH時mm分ss.S秒"
+}
