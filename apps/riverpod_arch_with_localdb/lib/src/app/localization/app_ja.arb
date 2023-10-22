@@ -1,0 +1,10 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Flutter Riverpod サンプルアプリ2 (ローカルDBストレージ)",
+  "homePageTitle": "お気に入りのケーキ",
+  "cakeTitle": "私のおいしい {flavor} ケーキ",
+  "cakeYummyness": "おいしさ: {count}",
+  "cakeFlavors1": "りんご",
+  "cakeFlavors2": "オレンジ",
+  "cakeFlavors3": "チョコレート"
+}

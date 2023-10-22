@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_arch_with_localdb/src/app/localization/app_localizations_context.dart';
 import '../controllers/cake_controller.dart';
 import '../controllers/cake_state.dart';
 
@@ -21,7 +22,8 @@ class CakeListView extends ConsumerWidget {
                 final cake = cakes[index];
                 return ListTile(
                   title: Text(cake.name),
-                  subtitle: Text('Yummyness: ${cake.yummyness}'),
+                  subtitle: Text(context.locale.cakeYummyness(cake.yummyness)),
+                  //subtitle: Text('Yummyness: ${cake.yummyness}'),
                   leading: IconButton(
                     icon: const Icon(Icons.thumb_up),
                     onPressed: () => controller.edit(cake),

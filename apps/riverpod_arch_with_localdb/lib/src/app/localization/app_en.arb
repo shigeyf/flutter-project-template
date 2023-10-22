@@ -1,0 +1,31 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter Riverpod sample app2 (localdb storage)",
+  "@appTitle": {
+    "description": "The title of the application."
+  },
+  "homePageTitle": "My Favorite Cakes",
+  "cakeTitle": "My yummy {flavor} cake",
+  "@cakeTitle": {
+    "description": "The cake title with a flavor parameter.",
+    "placeholders": {
+      "flavor": {
+        "type": "String",
+        "example": "apple"
+      }
+    }
+  },
+  "cakeYummyness": "Yummyness: {count}",
+  "@cakeYummyness": {
+    "description": "The yammyness counts with a counter parameter.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "cakeFlavors1": "apple",
+  "cakeFlavors2": "orange",
+  "cakeFlavors3": "chocolate"
+}

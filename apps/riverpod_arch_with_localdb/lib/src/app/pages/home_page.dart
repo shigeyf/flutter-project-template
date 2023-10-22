@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../app/localization/app_localizations_context.dart';
 import '../../features/cakes/presentation/views/cake_list_view.dart';
 import '../../features/cakes/presentation/views/cake_add_view.dart';
 
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Favorite Cakes'),
+        title: Text(context.locale.homePageTitle),
       ),
       body: const SafeArea(
         top: false,

@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../app/localization/app_localizations_provider.dart';
 import '../../domain/models/cake.dart';
 import '../../providers.dart';
 import '../../domain/repositories/cake_repository.dart';
@@ -7,17 +8,25 @@ import '../../domain/repositories/cake_repository.dart';
 /// Provides a provider global variable for [HomePageController].
 final cakeControllerProvider = Provider(
   (ref) => CakeController(
+    ref: ref,
     cakeRepository: ref.watch(cakeRepositoryProvider),
   ),
 );
 
 /// Represents a controller class for [HomePage] widget.
 class CakeController {
-  static const flavors = ['apple', 'orange', 'chocolate'];
+  //static const flavors = ['apple', 'orange', 'chocolate'];
+  final Ref ref;
   final CakeRepository cakeRepository;
+  final List<String> flavors;
 
   /// Provides a constructor for [CakeController].
-  CakeController({required this.cakeRepository});
+  CakeController({required this.ref, required this.cakeRepository}):
+    flavors = [
+      ref.read(appLocalizationsProvider).cakeFlavors1,
+      ref.read(appLocalizationsProvider).cakeFlavors2,
+      ref.read(appLocalizationsProvider).cakeFlavors3,
+    ];
 
   // We add functions to allow the handling of delete, edit, and add actions by the user.
   // Delete will remove the cake from the database,
@@ -37,7 +46,7 @@ class CakeController {
   Future<void> add() async {
     final flavorIndex = Random().nextInt(flavors.length - 1);
     final newCake = Cake(
-      name: 'My yummy ${flavors[flavorIndex]} cake',
+      name: ref.read(appLocalizationsProvider).cakeTitle(flavors[flavorIndex]),
       yummyness: Random().nextInt(10),
     );
     await cakeRepository.insertCake(newCake);
