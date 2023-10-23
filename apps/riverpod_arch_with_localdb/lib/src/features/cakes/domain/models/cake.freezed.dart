@@ -20,9 +20,11 @@ Cake _$CakeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Cake {
-  int get id => throw _privateConstructorUsedError;
+//@Default(-1) int id,
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get yummyness => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,7 @@ abstract class $CakeCopyWith<$Res> {
   factory $CakeCopyWith(Cake value, $Res Function(Cake) then) =
       _$CakeCopyWithImpl<$Res, Cake>;
   @useResult
-  $Res call({int id, String name, int yummyness});
+  $Res call({String id, String name, int yummyness, DateTime createdAt});
 }
 
 /// @nodoc
@@ -53,12 +55,13 @@ class _$CakeCopyWithImpl<$Res, $Val extends Cake>
     Object? id = null,
     Object? name = null,
     Object? yummyness = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -67,6 +70,10 @@ class _$CakeCopyWithImpl<$Res, $Val extends Cake>
           ? _value.yummyness
           : yummyness // ignore: cast_nullable_to_non_nullable
               as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -78,7 +85,7 @@ abstract class _$$CakeImplCopyWith<$Res> implements $CakeCopyWith<$Res> {
       __$$CakeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, int yummyness});
+  $Res call({String id, String name, int yummyness, DateTime createdAt});
 }
 
 /// @nodoc
@@ -94,12 +101,13 @@ class __$$CakeImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? yummyness = null,
+    Object? createdAt = null,
   }) {
     return _then(_$CakeImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,29 +116,40 @@ class __$$CakeImplCopyWithImpl<$Res>
           ? _value.yummyness
           : yummyness // ignore: cast_nullable_to_non_nullable
               as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CakeImpl implements _Cake {
-  const _$CakeImpl({this.id = -1, required this.name, required this.yummyness});
+class _$CakeImpl extends _Cake {
+  const _$CakeImpl(
+      {required this.id,
+      required this.name,
+      required this.yummyness,
+      required this.createdAt})
+      : super._();
 
   factory _$CakeImpl.fromJson(Map<String, dynamic> json) =>
       _$$CakeImplFromJson(json);
 
+//@Default(-1) int id,
   @override
-  @JsonKey()
-  final int id;
+  final String id;
   @override
   final String name;
   @override
   final int yummyness;
+  @override
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'Cake(id: $id, name: $name, yummyness: $yummyness)';
+    return 'Cake(id: $id, name: $name, yummyness: $yummyness, createdAt: $createdAt)';
   }
 
   @override
@@ -141,12 +160,14 @@ class _$CakeImpl implements _Cake {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.yummyness, yummyness) ||
-                other.yummyness == yummyness));
+                other.yummyness == yummyness) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, yummyness);
+  int get hashCode => Object.hash(runtimeType, id, name, yummyness, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -162,20 +183,24 @@ class _$CakeImpl implements _Cake {
   }
 }
 
-abstract class _Cake implements Cake {
+abstract class _Cake extends Cake {
   const factory _Cake(
-      {final int id,
+      {required final String id,
       required final String name,
-      required final int yummyness}) = _$CakeImpl;
+      required final int yummyness,
+      required final DateTime createdAt}) = _$CakeImpl;
+  const _Cake._() : super._();
 
   factory _Cake.fromJson(Map<String, dynamic> json) = _$CakeImpl.fromJson;
 
-  @override
-  int get id;
+  @override //@Default(-1) int id,
+  String get id;
   @override
   String get name;
   @override
   int get yummyness;
+  @override
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$CakeImplCopyWith<_$CakeImpl> get copyWith =>

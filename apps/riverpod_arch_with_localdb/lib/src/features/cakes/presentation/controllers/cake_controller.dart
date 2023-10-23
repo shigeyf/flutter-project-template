@@ -21,12 +21,12 @@ class CakeController {
   final List<String> flavors;
 
   /// Provides a constructor for [CakeController].
-  CakeController({required this.ref, required this.cakeRepository}):
-    flavors = [
-      ref.read(appLocalizationsProvider).cakeFlavors1,
-      ref.read(appLocalizationsProvider).cakeFlavors2,
-      ref.read(appLocalizationsProvider).cakeFlavors3,
-    ];
+  CakeController({required this.ref, required this.cakeRepository})
+      : flavors = [
+          ref.read(appLocalizationsProvider).cakeFlavors1,
+          ref.read(appLocalizationsProvider).cakeFlavors2,
+          ref.read(appLocalizationsProvider).cakeFlavors3,
+        ];
 
   // We add functions to allow the handling of delete, edit, and add actions by the user.
   // Delete will remove the cake from the database,
@@ -35,20 +35,24 @@ class CakeController {
   // Since the stream will automatically update, there is no need to query the database manually.
 
   Future<void> delete(Cake cake) async {
-    await cakeRepository.deleteCake(cake.id);
+    print('CakeController Delete Cake: $cake');
+    await cakeRepository.deleteCake(cake.keyId);
   }
 
   Future<void> edit(Cake cake) async {
     final updatedCake = cake.copyWith(yummyness: cake.yummyness + 1);
+    print('CakeController Edit Cake: $updatedCake');
     await cakeRepository.updateCake(updatedCake);
   }
 
   Future<void> add() async {
     final flavorIndex = Random().nextInt(flavors.length - 1);
-    final newCake = Cake(
-      name: ref.read(appLocalizationsProvider).cakeTitle(flavors[flavorIndex]),
-      yummyness: Random().nextInt(10),
-    );
+    final newCake = CakeBuilder(
+        name: ref.read(appLocalizationsProvider).cakeTitle(flavors[flavorIndex]),
+        yummyness: Random().nextInt(10),
+    ).build();
+    print(
+        'CakeController Create a new Cake: $newCake (id = ${newCake.id})');
     await cakeRepository.insertCake(newCake);
   }
 }

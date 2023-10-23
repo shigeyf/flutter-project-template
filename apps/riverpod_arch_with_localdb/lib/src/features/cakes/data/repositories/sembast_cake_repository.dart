@@ -8,6 +8,7 @@ import '../../domain/repositories/cake_repository.dart';
 class SembastCakeRepository implements CakeRepository {
   final Database database;
   late final StoreRef<int, Map<String, dynamic>> _store;
+  final String className = 'SembastCakeRepository';
 
   /// Provides a constructor of [SembastCakeRepository].
   SembastCakeRepository({required this.database}) {
@@ -15,22 +16,32 @@ class SembastCakeRepository implements CakeRepository {
   }
 
   @override
-  Future<int> insertCake(Cake cake) =>
-      _store.add(database, cake.toJson());
+  Future<int> insertCake(Cake cake) async {
+    print('$className: insertCake = Id(${cake.keyId}) $cake');
+    //return _store.add(database, cake.toJson());
+    await _store.record(cake.keyId).put(database, cake.toJson());
+    return cake.keyId;
+  }
 
   @override
-  Future<void> updateCake(Cake cake) =>
-      _store.record(cake.id).update(database, cake.toJson());
+  Future<void> updateCake(Cake cake) {
+    print('$className: updateCake = Id(${cake.keyId}) $cake');
+    return _store.record(cake.keyId).update(database, cake.toJson());
+  }
 
   @override
-  Future deleteCake(int cakeId) =>
-      _store.record(cakeId).delete(database);
+  Future deleteCake(int cakeId) {
+    print('$className: deleteCake = Id($cakeId)');
+    return _store.record(cakeId).delete(database);
+  }
 
   @override
-  Stream<List<Cake>> getAllCakesStream() =>
-      _store.query().onSnapshots(database).map(
-            (snapshot) => snapshot
-                .map((cake) => Cake.fromJson(cake.value).copyWith(id: cake.key))
-                .toList(growable: false),
-          );
+  Stream<List<Cake>> getAllCakesStream() {
+    var finder = Finder(sortOrders: [SortOrder('createdAt')]);
+    return _store.query(finder: finder).onSnapshots(database).map((snapshot) =>
+        snapshot.map((cake) {
+          print('$className: getAllCakesStreamRecord Key=${cake.key}:$cake');
+          return Cake.fromJson(cake.value);
+        }).toList(growable: false));
+  }
 }
