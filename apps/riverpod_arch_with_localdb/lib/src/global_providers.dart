@@ -6,5 +6,6 @@ import 'package:isar/isar.dart';
 final databaseProvider =
     Provider<Database>((_) => throw Exception('Database not initialized'));
 
+/// Provides a Isar database provider.
 final isarProvider =
     Provider<Isar>((_) => throw Exception('Isar Database not initialized'));
