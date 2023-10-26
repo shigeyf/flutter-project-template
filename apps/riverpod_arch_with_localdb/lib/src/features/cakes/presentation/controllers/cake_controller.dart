@@ -5,7 +5,7 @@ import '../../domain/models/cake.dart';
 import '../../providers.dart';
 import '../../domain/repositories/cake_repository.dart';
 
-/// Provides a provider global variable for [HomePageController].
+/// Provides a provider global variable for [CakeController].
 final cakeControllerProvider = Provider(
   (ref) => CakeController(
     ref: ref,
