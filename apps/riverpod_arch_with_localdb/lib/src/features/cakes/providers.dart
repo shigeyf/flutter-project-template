@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../global_providers.dart';
 import './data/repositories/sembast_cake_repository.dart';
 import './data/repositories/isar_cake_repository.dart';
+import './data/repositories/in_memory_cake_repository.dart';
 
 /// Provides a provider for CakeRepository implementation with Sembast.
 final sembastCakeRepositoryProvider = Provider(
@@ -15,7 +16,13 @@ final isarCakeRepositoryProvider = Provider(
   (ref) => IsarCakeRepository(isar: ref.watch(isarProvider)),
 );
 
+/// Provides a provider for CakeRepository implementation with Isar.
+final inMemoryCakeRepositoryProvider = Provider(
+  (ref) => InMemoryCakeRepository(),
+);
+
 /// Provides a provider for CakeRepository local database implementation.
 // Select Isar or Sembast implementation
 //final cakeRepositoryProvider = sembastCakeRepositoryProvider;
-final cakeRepositoryProvider = isarCakeRepositoryProvider;
+//final cakeRepositoryProvider = isarCakeRepositoryProvider;
+final cakeRepositoryProvider = inMemoryCakeRepositoryProvider;
