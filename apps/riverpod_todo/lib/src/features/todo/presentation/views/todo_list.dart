@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_todo/src/features/todo/presentation/views/todo_item_search.dart';
 import '../../../../app/widgets/title.dart';
 import '../controllers/todo_controller.dart';
+import '../controllers/todo_list_filtered_items_controller.dart';
 import '../controllers/todo_current_item_controller.dart';
 import './todo_item.dart';
 import './todo_toolbar.dart';

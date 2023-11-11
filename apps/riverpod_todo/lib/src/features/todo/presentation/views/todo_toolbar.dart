@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../controllers/todo_controller.dart';
+import '../controllers/todo_list_uncompleted_items_controller.dart';
+import '../controllers/todo_list_filter_controller.dart';
 
 final activeFilterKey = UniqueKey();
 final completedFilterKey = UniqueKey();
