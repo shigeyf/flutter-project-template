@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/models/todo.dart';
-import './todo_controller.dart';
+import './todo_list_controller.dart';
 import 'todo_list_filter_controller.dart';
 
 /// The list of todos after applying of [todoListFilter].

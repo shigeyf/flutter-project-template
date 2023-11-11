@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import './todo_controller.dart';
+import './todo_list_controller.dart';
 
 /// The number of uncompleted todos
 ///
