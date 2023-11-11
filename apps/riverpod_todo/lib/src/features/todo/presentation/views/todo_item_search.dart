@@ -18,7 +18,8 @@ class TodoListSearch extends HookConsumerWidget {
         labelText: 'What needs to be done?',
       ),
       onSubmitted: (value) {
-        ref.read(todoListProvider.notifier).add(value);
+        //ref.read(todoListProvider.notifier).add(value);
+        ref.read(todoListServiceProvider.notifier).add(value);
         newTodoController.clear();
       },
     );

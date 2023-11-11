@@ -1,20 +1,47 @@
-import 'package:flutter/foundation.dart' show immutable;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:isar/isar.dart';
+import 'package:uuid/uuid.dart';
+import '../../../../app/utils/fast_hash.dart';
+
+part 'todo.freezed.dart';
+part 'todo.g.dart';
 
 /// A read-only description of a todo-item
-@immutable
-class Todo {
-  const Todo({
-    required this.description,
-    required this.id,
-    this.completed = false,
-  });
+@freezed
+@Collection(ignore: {'copyWith'})
+class Todo with _$Todo {
+  const Todo._();
+
+  const factory Todo({
+    required String id,
+    required String description,
+    @Default(false) bool completed,
+  }) = _Todo;
+
+  Id get keyId => fastHash(id);
+
+  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
+
+  factory Todo._builder(TodoBuilder builder) {
+    return Todo(
+      id: builder.id,
+      description: builder.description,
+      completed: builder.completed,
+    );
+  }
+}
+
+class TodoBuilder {
+  static const Uuid _uuid = Uuid();
 
   final String id;
   final String description;
-  final bool completed;
+  bool completed;
 
-  @override
-  String toString() {
-    return 'Todo(description: $description, completed: $completed)';
+  TodoBuilder({required this.description, this.completed = false})
+      : id = _uuid.v1();
+
+  Todo build() {
+    return Todo._builder(this);
   }
 }

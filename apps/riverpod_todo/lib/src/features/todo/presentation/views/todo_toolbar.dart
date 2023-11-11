@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../controllers/todo_list_uncompleted_items_controller.dart';
+import 'package:riverpod_todo/src/features/todo/presentation/views/todo_uncompleted_count.dart';
+//import '../controllers/todo_list_uncompleted_items_controller.dart';
 import '../controllers/todo_list_filter_controller.dart';
 
 final activeFilterKey = UniqueKey();
@@ -22,11 +23,12 @@ class TodoToolbar extends HookConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Text(
-              '${ref.watch(uncompletedTodosCount)} items left',
-              overflow: TextOverflow.ellipsis,
-            ),
+          const Expanded(
+            child: TodoUncompletedItemCount(),
+            //Text(
+            //  '${ref.watch(uncompletedTodosCount)} items left',
+            //  overflow: TextOverflow.ellipsis,
+            //),
           ),
           Tooltip(
             key: allFilterKey,

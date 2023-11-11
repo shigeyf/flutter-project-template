@@ -44,7 +44,8 @@ class TodoItem extends HookConsumerWidget {
           } else {
             // Commit changes only when the textfield is unfocused, for performance
             ref
-                .read(todoListProvider.notifier)
+                //.read(todoListProvider.notifier)
+                .read(todoListServiceProvider.notifier)
                 .edit(id: todo.id, description: textEditingController.text);
           }
         },
@@ -56,7 +57,8 @@ class TodoItem extends HookConsumerWidget {
           leading: Checkbox(
             value: todo.completed,
             onChanged: (value) =>
-                ref.read(todoListProvider.notifier).toggle(todo.id),
+                //ref.read(todoListProvider.notifier).toggle(todo.id),
+                ref.read(todoListServiceProvider.notifier).toggle(todo.id),
           ),
           title: itemIsFocused
               ? TextField(

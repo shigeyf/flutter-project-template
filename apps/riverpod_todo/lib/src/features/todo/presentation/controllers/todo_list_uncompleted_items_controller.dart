@@ -9,6 +9,11 @@ import './todo_list_controller.dart';
 ///
 /// This will also optimise unneeded rebuilds if the todo-list changes, but the
 /// number of uncompleted todos doesn't (such as when editing a todo).
-final uncompletedTodosCount = Provider<int>((ref) {
+final uncompletedTodosCount_old = Provider<int>((ref) {
   return ref.watch(todoListProvider).where((todo) => !todo.completed).length;
+});
+
+final uncompletedTodosCount = FutureProvider<int>((ref) async {
+  final todos = await ref.watch(todoListServiceProvider.future);
+  return todos.where((todo) => !todo.completed).length;
 });
