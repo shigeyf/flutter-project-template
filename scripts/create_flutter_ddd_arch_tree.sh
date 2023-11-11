@@ -61,7 +61,7 @@ fi
 if [ -f ${PWD}/lib/main.dart ]; then
   _project_top_dir=${PWD}
   _lib=${_project_top_dir}/lib
-  dirs="src src/app src/dependencies src/features"
+  dirs="src src/app src/app/configs src/app/localization src/app/pages src/app/themes src/app/widgets src/dependencies src/features"
   for d in ${dirs}; do
     mkdir -p ${_lib}/${d}
     touch ${_lib}/${d}/.gitkeep
