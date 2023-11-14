@@ -38,7 +38,7 @@ class TodoListService extends AsyncNotifier<List<Todo>> {
     final id = await repository.insert(newEntry);
     print('$runtimeType:add(): $newEntry (id = $id)');
 
-    state = await AsyncValue.guard(() => repository.getAll());
+    state = await AsyncValue.guard<List<Todo>>(() => repository.getAll());
   }
 
   Future<void> edit({required String id, required String description}) async {
