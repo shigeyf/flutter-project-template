@@ -1,0 +1,45 @@
+name: riverpod_firebase_auth
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.4 <4.0.0'
+
+dependencies:
+  firebase_auth: ^4.14.0
+  firebase_core: ^2.22.0
+  firebase_ui_auth: ^1.10.0
+  firebase_ui_localizations: ^1.8.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.4.6
+  freezed_annotation: ^2.4.1
+  gap: ^3.0.1
+  go_router: ^12.1.1
+  intl: ^0.18.1
+  json_annotation: ^4.8.1
+  riverpod_annotation: ^2.3.1
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+  custom_lint: ^0.5.6
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+  riverpod_generator: ^2.3.6
+  riverpod_lint: ^2.3.4
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+fonts:
+  - family: SocialIcons
+    fonts:
+      - asset: packages/firebase_ui_auth/fonts/SocialIcons.ttf

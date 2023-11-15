@@ -1,0 +1,17 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter Riverpod Firebase Authentication app",
+  "@appTitle": {
+    "description": "The title of the application."
+  },
+  "home": "Home",
+  "account": "Account",
+  "signin": "Sign-in",
+  "hello_world": "Hello World!",
+  "get_started": "Get Started",
+  "welcome_message": "Welcome!\nThis is a sample app with Firebase Auth.",
+  "dark_mode": "Dark mode",
+  "dark_mode_disabled": "Off",
+  "dark_mode_enabled": "On",
+  "dark_mode_follows_system": "Follows device settings"
+}

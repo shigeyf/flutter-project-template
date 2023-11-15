@@ -1,0 +1,14 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Flutter Riverpod Firebase 認証アプリ",
+  "home": "ホーム",
+  "account": "アカウント",
+  "signin": "サインイン",
+  "hello_world": "こんにちは！",
+  "get_started": "さあ、はじめましょう！",
+  "welcome_message": "ようこそ！\nこのアプリは、FireBase 認証機能を使ったサンプルアプリです。",
+  "dark_mode": "ダーク モード",
+  "dark_mode_disabled": "オフ",
+  "dark_mode_enabled": "オン",
+  "dark_mode_follows_system": "端末の設定に従う"
+}
